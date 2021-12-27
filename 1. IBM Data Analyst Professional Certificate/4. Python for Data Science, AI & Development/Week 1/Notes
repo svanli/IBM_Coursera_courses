@@ -1,0 +1,48 @@
+"hello Mike".find("Mike") 
+
+int(False)
+
+'1'+'2' 
+
+myvar = 'hello'
+
+myvar.upper()
+
+str(1)+str(1) 
+
+str(2)+str(1)
+
+'2'+'1'
+
+"123".replace("12", "ab")
+
+x=1/1
+
+print(x)
+
+x=10/2
+
+print(x)
+
+print('Stefan Vanli')
+
+print('Stefan'+' '+'Vanli')
+
+import sys
+print(sys.version)
+
+sys.float_info
+
+import sys
+sys.float_info
+
+type(2)
+
+type(2)
+type(2.0)
+
+type(2.0)
+
+x = 10 + 2
+
+x
