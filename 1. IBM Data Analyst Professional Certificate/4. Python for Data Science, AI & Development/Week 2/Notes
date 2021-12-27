@@ -1,0 +1,24 @@
+fruits = ['apple', 'banana', 'cherry']
+fruits.index("cherry")
+
+
+A = ((11,12), [21,22])
+A[1]
+
+A = ((1), [2,3], [4])
+A[2][0]
+
+A = ["hard rock", 10, 1.2]
+del(A[1])
+A
+
+len(("disco", 10, 1.2, "hard rock", 10))
+
+A = {"The Bodyguard": "1992", "Saturday Night Fever": "1977"}
+A.values()
+
+V = {'1', '2'}
+V.add('3')
+V
+
+'1' in {'1', '2'}
