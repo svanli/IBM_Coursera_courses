@@ -1,0 +1,53 @@
+1. Simple SELECT Statements
+
+1.1 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	*
+FROM	FilmLocations
+
+* Information on the table:
+FilmLocations(
+    Title:              titles of the films, 
+    ReleaseYear:        time of public release of the films, 
+    Locations:          locations of San Francisco where the films were shot, 
+    FunFacts:           funny facts about the filming locations, 
+    ProductionCompany:  companies who produced the films, 
+    Distributor:        companies who distributed the films, 
+    Director:           people who directed the films, 
+    Writer:             people who wrote the films, 
+    Actor1:             person 1 who acted in the films, 
+    Actor2:             person 2 who acted in the films, 
+    Actor3:             person 3 who acted in the films
+)
+
+1.2 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	Title,
+		Director,
+		Writer
+FROM	FilmLocations
+
+1.3 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	Title,
+		Locations,
+		ReleaseYear
+FROM	FilmLocations
+WHERE	ReleaseYear >= 2001
+
+1.4 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	FunFacts,
+		Locations
+FROM	FilmLocations
+
+1.5 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	Title,
+		ReleaseYear,
+		Locations
+FROM	FilmLocations
+WHERE	ReleaseYear <= 2000
+
+1.6 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	Title,
+		ProductionCompany,
+		Locations,
+		ReleaseYear
+FROM	FilmLocations
+WHERE	ReleaseYear != 'James Cameron'
