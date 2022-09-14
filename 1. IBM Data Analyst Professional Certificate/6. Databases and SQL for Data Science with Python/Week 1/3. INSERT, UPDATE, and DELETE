@@ -1,0 +1,98 @@
+3. INSERT, UPDATE, and DELETE
+
+3.1 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	*
+FROM	Instructor
+
+* Information on the table:
+Instructor (
+    ins_id:     unique identification number of the instructors,    
+    lastname:   last name of the instructors,
+    firstname:  first name of the instructors,
+    city:       name of the cities where instructors are located,
+    country:    two-letter country code of the countries where instructors are located
+)
+
+3.2 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+INSERT  INTO Instructor
+        (ins_id, lastname, firstname, city, country)
+VALUES  ('4', 'Saha', 'Sandip', 'Edmonton', 'CA');
+
+SELECT  *
+FROM    Instructor
+
+3.3 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+INSERT  INTO Instructor
+        (ins_id, lastname, firstname, city, country)
+VALUES  ('5', 'Doe', 'John', 'Sydney', 'AU'),
+        ('6', 'Doe', 'Jane', 'Dhaka', 'BD');
+
+SELECT  *
+FROM    Instructor
+
+3.4 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+INSERT  INTO Instructor
+        (ins_id, lastname, firstname, city, country)
+VALUES  ('7', 'Cangiano', 'Antonio', 'Vancouver', 'CA');
+
+SELECT  *
+FROM    Instructor
+
+3.5 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+INSERT  INTO Instructor
+        (ins_id, lastname, firstname, city, country)
+VALUES  ('8', 'Ryan', 'Steve', 'Barlby', 'GB'),
+        ('9', 'Sannareddy', 'Ramesh', 'Hyderabad', 'IN');
+
+SELECT  *
+FROM    Instructor
+
+3.6 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+UPDATE  Instructor
+SET     city        = 'Toronto'
+WHERE   firstname   = 'Sandip';
+
+SELECT  *
+FROM    Instructor
+
+3.7 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+UPDATE  Instructor
+SET     city    = 'Dubai',
+        country = 'AE'
+WHERE   ins_id  = 5;
+
+SELECT  *
+FROM    Instructor
+
+3.8 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+UPDATE  Instructor
+SET     city    = 'Markham'
+WHERE   ins_id  = 1;
+
+SELECT  *
+FROM    Instructor
+
+3.9 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+UPDATE  Instructor
+SET     city    = 'Dhaka',
+        country = 'BD'
+WHERE   ins_id  = 4;
+
+SELECT  *
+FROM    Instructor
+
+3.10 —————————————————————————————————————————————————————————————————————————————————————————————————————
+DELETE
+FROM    Instructor
+WHERE   ins_id = 6;
+
+SELECT  *
+FROM    Instructor
+
+3.11 —————————————————————————————————————————————————————————————————————————————————————————————————————
+DELETE
+FROM    Instructor
+WHERE   firstname = 'Hima';
+
+SELECT  *
+FROM    Instructor
