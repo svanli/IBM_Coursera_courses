@@ -1,0 +1,81 @@
+4. Working with Multiple Tables
+
+4.1 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT 	*
+FROM 	EMPLOYEES
+WHERE	JOB_ID IN (SELECT	JOB_IDENT
+				   FROM		JOBS)
+
+4.2 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT 	*
+FROM 	EMPLOYEES
+WHERE	JOB_ID IN (SELECT	JOB_IDENT
+				   FROM		JOBS
+				   WHERE	JOB_TITLE = 'Jr. Designer')
+
+4.3 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT 	JOB_TITLE,
+		MIN_SALARY,
+		MAX_SALARY,
+		JOB_IDENT
+FROM 	JOBS
+WHERE	JOB_IDENT IN (SELECT	JOB_ID
+				      FROM		EMPLOYEES
+				      WHERE		SALARY > 70000)
+
+4.4 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT 	JOB_TITLE,
+		MIN_SALARY,
+		MAX_SALARY,
+		JOB_IDENT
+FROM 	JOBS
+WHERE	JOB_IDENT IN (SELECT	JOB_ID
+				      FROM		EMPLOYEES
+				      WHERE		YEAR(B_DATE) > 1976)
+
+4.5 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT 	JOB_TITLE,
+		MIN_SALARY,
+		MAX_SALARY,
+		JOB_IDENT
+FROM 	JOBS
+WHERE	JOB_IDENT IN (SELECT	JOB_ID
+				      FROM		EMPLOYEES
+				      WHERE		YEAR(B_DATE) > 1976
+				      			AND
+				      			SEX = 'F')
+
+4.6 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	*
+FROM	EMPLOYEES,
+		JOBS
+
+4.7 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	*
+FROM	EMPLOYEES,
+		JOBS
+WHERE 	JOB_ID = JOB_IDENT
+
+4.8 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	*
+FROM	EMPLOYEES	e,
+		JOBS		j
+WHERE 	e.JOB_ID = j.JOB_IDENT
+
+4.9 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	EMP_ID,
+		F_NAME,
+		L_NAME,
+		JOB_TITLE
+FROM	EMPLOYEES	e,
+		JOBS		j
+WHERE 	e.JOB_ID = j.JOB_IDENT
+
+4.10 —————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	e.EMP_ID,
+		e.F_NAME,
+		e.L_NAME,
+		j.JOB_TITLE
+FROM	EMPLOYEES	e,
+		JOBS		j
+WHERE 	e.JOB_ID = j.JOB_IDENT
