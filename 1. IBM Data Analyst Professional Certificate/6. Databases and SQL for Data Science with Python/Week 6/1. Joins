@@ -1,0 +1,35 @@
+1. Joins
+
+1.1 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	e.F_NAME, e.L_NAME, j.START_DATE
+FROM	EMPLOYEES e INNER JOIN JOB_HISTORY j ON e.EMP_ID = j.EMP_ID
+WHERE	e.DEP_ID = 5
+
+1.2 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	e.F_NAME, e.L_NAME, j.START_DATE, jo.JOB_TITLE
+FROM	EMPLOYEES e
+		INNER JOIN JOB_HISTORY j ON e.EMP_ID  = j.EMP_ID
+		INNER JOIN JOBS jo       ON j.JOBS_ID = jo.JOB_IDENT
+WHERE	e.DEP_ID = 5
+
+1.3 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	e.EMP_ID, e.L_NAME, e.DEP_ID, d.DEP_NAME
+FROM	EMPLOYEES e
+		LEFT OUTER JOIN DEPARTMENTS d ON e.DEP_ID = d.DEPT_ID_DEP
+
+1.4 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	e.EMP_ID, e.L_NAME, e.DEP_ID, d.DEP_NAME
+FROM	EMPLOYEES e
+		LEFT OUTER JOIN DEPARTMENTS d ON e.DEP_ID = d.DEPT_ID_DEP
+WHERE	YEAR(e.B_DATE) < 1980
+
+1.5 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	e.EMP_ID, e.L_NAME, e.DEP_ID, d.DEP_NAME
+FROM	EMPLOYEES e
+		LEFT OUTER JOIN DEPARTMENTS d ON  e.DEP_ID = d.DEPT_ID_DEP
+									  AND YEAR(e.B_DATE) < 1980
+
+1.6 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	e.F_NAME, , e.L_NAME, d.DEP_NAME
+FROM	EMPLOYEES e FULL JOIN DEPARTMENTS d ON  e.DEP_ID = d.DEPT_ID_DEP
+										    AND e.SEX = 'M'

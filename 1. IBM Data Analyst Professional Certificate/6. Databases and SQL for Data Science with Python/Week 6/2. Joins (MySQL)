@@ -1,0 +1,21 @@
+2. Joins (MySQL)
+
+2.6 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	e.F_NAME, , e.L_NAME, d.DEP_NAME
+FROM	EMPLOYEES e LEFT OUTER JOIN DEPARTMENTS d ON e.DEP_ID = d.DEPT_ID_DEP
+
+UNION
+
+SELECT	e.F_NAME, , e.L_NAME, d.DEP_NAME
+FROM	EMPLOYEES e RIGHT OUTER JOIN DEPARTMENTS d ON e.DEP_ID = d.DEPT_ID_DEP
+
+2.7 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	e.F_NAME, , e.L_NAME, d.DEP_NAME
+FROM	EMPLOYEES e LEFT OUTER JOIN DEPARTMENTS d ON  e.DEP_ID = d.DEPT_ID_DEP
+												  AND e.SEX = 'M'
+
+UNION
+
+SELECT	e.F_NAME, , e.L_NAME, d.DEP_NAME
+FROM	EMPLOYEES e RIGHT OUTER JOIN DEPARTMENTS d ON  e.DEP_ID = d.DEPT_ID_DEP
+												   AND e.SEX = 'M'
