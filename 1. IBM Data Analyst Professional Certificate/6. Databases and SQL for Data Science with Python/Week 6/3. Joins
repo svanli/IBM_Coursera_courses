@@ -1,0 +1,20 @@
+3. Joins
+
+3.1 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	crd.CASE_NUMBER, crd.PRIMARY_TYPE, ced.COMMUNITY_AREA_NAME
+FROM	ChicagoCrimeData crd 
+		INNER JOIN ChicagoCensusData ced ON crd.COMMUNITY_AREA_NUMBER = ced.COMMUNITY_AREA_NUMBER
+WHERE	crd.COMMUNITY_AREA_NUMBER = 18
+
+3.2 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	crd.CASE_NUMBER, crd.PRIMARY_TYPE, ced.COMMUNITY_AREA_NAME
+FROM	ChicagoCrimeData crd 
+		LEFT JOIN ChicagoCensusData ced ON crd.COMMUNITY_AREA_NUMBER = ced.COMMUNITY_AREA_NUMBER
+WHERE	crd.COMMUNITY_AREA_NUMBER = 18 AND
+		LOCATION_DESCRIPTION LIKE '%school%'
+
+3.3 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	crd.COMMUNITY_AREA_NUMBER, crd.CASE_NUMBER
+FROM	ChicagoCrimeData crd 
+		FULL OUTER JOIN ChicagoCensusData ced ON crd.COMMUNITY_AREA_NUMBER = ced.COMMUNITY_AREA_NUMBER
+WHERE	ced.COMMUNITY_AREA_NAME IN ('Oakland', 'Armour Square', 'Edgewater', 'CHICAGO')

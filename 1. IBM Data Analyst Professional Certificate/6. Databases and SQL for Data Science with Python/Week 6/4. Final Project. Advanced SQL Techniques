@@ -1,0 +1,72 @@
+4. Final Project: Advanced SQL Techniques
+
+4.1 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	NAME_OF_SCHOOL, COMMUNITY_AREA_NAME, AVERAGE_STUDENT_ATTENDANCE
+FROM	ChicagoPublicSchools pus
+		LEFT JOIN ChicagoCensusData ced ON pus.COMMUNITY_AREA_NUMBER = ced.COMMUNITY_AREA_NUMBER
+WHERE	ced.HARDSHIP_INDEX = 98
+
+4.2 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+SELECT	crd.CASE_NUMBER, crd.PRIMARY_TYPE, ced.COMMUNITY_AREA_NAME
+FROM	ChicagoCrimeData crd
+		LEFT JOIN ChicagoCensusData ced ON crd.COMMUNITY_AREA_NUMBER = ced.COMMUNITY_AREA_NUMBER
+WHERE	LOCATION_DESCRIPTION LIKE '%school%'
+
+4.3 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+CREATE VIEW example_view (School_Name, Safety_Rating, Family_Rating, Environment_rating, Instruction_Rating, Leaders_Rating, Teachers_Rating)
+
+AS
+
+SELECT	NAME_OF_SCHOOL, 
+		Safety_Icon, 
+		Family_Involvement_Icon, 
+		Environment_Icon, 
+		Instruction_Icon, 
+		Leaders_Icon, 
+		Teachers_Icon
+FROM	ChicagoPublicSchools;
+
+SELECT	*
+FROM 	example_view;
+
+SELECT	School_Name, 
+		Leaders_Rating
+FROM 	example_view
+
+4.4 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+--#SET TERMINATOR @
+CREATE PROCEDURE UPDATE_LEADERS_SCORE (IN IN_SCHOOL_ID INTEGER, IN IN_Leader_Score INTEGER )
+
+LANGUAGE SQL 
+MODIFIES SQL DATA                      
+DYNAMIC RESULT SETS 1               
+
+BEGIN 
+
+    DECLARE C1 CURSOR             
+    WITH RETURN FOR                 
+    
+    SELECT	school_id, Leaders_score
+    FROM 	ChicagoPublicSchools;
+    OPEN 	C1;
+
+END
+@  
+
+4.6 ——————————————————————————————————————————————————————————————————————————————————————————————————————
+UPDATE "CHICAGO_PUBLIC_SCHOOLS"
+SET 
+   "Leaders_Score" = in_Leader_Score
+,  "Leaders_Icon" = 
+   CASE 
+     WHEN in_Leader_Score >= 80                            
+       THEN 'Very_Strong'
+     WHEN in_Leader_Score >= 60 and in_Leader_Score <= 79  
+       THEN 'Strong'
+     WHEN in_Leader_Score >= 40 and in_Leader_Score <= 59  
+       THEN 'Average'
+     WHEN in_Leader_Score >= 20 and in_Leader_Score <= 39  
+       THEN 'Weak'
+     ELSE 'Very Weak'
+   END
+WHERE "School_ID" = in_School_ID;
